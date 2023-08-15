@@ -1,0 +1,117 @@
+openapi: '3.0.2'
+info:
+  title: Инвест идеи API
+  version: '1.0'
+servers:
+  - url: https://server.com/api/invest-ideas/v1
+paths:
+  /ivest-ideas:
+    get:
+      summary:  Получить инвест идеи.
+      description: Получить инвест список инвест идей по массиву id активов. Максимальный лимит по умолчанию 100.
+      operationId: invest-idea-list
+      parameters: 
+        - name: assets-ids
+          in: header
+          description: Список id активов.
+          required: true
+          style: simple
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: asset-limit
+          in: header
+          description: Лимит на количество возвращаемых идей.
+          required: false
+          style: simple
+          schema:
+            type: integer
+            default: 100
+      responses:
+        '200':
+          description: Массив инвест идей.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Idea'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /ivest-ideas/{id}:
+    get: 
+      summary: Получить инвест идею.
+      description: Получить одну инвест идею по ее id.
+      operationId: ivest-idea
+      parameters: 
+        - name: id
+          in: path
+          required: true
+          style: simple
+          schema: 
+            type: integer
+      responses:
+        '200':
+          description: Одна ивенст идея.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Idea'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      
+components:
+  schemas:
+    Idea:
+      allOf:
+        - $ref: '#/components/schemas/NewIdea'
+        - type: object
+          required:
+          - id
+          properties:
+            id:
+              type: integer
+              format: int64
+
+    NewIdea:
+      type: object
+      required:
+        - id  
+      properties:
+        id:
+          type: string
+        asset:
+          type: string
+        analytic:
+          type: string
+        actions:
+          type: string
+        factors:
+          type: string
+        price:
+          type: number
+        expiration-date:
+          type: string
+
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
