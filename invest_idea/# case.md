@@ -81,7 +81,7 @@ CREATE TABLE countries
     invest_factors VARCHAR(255) NOT NULL,
     price decimal NOT NULL,
     expiration_date timestamptz
-        CONSTRAINT fk_assetss FOREIGN KEY( asset_id )
+        CONSTRAINT fk_assets FOREIGN KEY( asset_id )
       REFERENCES assets( asset_id )
       ON DELETE CASCADE
         CONSTRAINT fk_analytics FOREIGN KEY( analytic_id )
