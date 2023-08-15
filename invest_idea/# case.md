@@ -128,7 +128,141 @@ servers:
 paths:
   /ivest-ideas:
     get:
+      summary:  Получить инвест идеи.
+      description: Получить инвест список инвест идей по массиву id активов. Максимальный лимит по умолчанию 100.
+      operationId: invest-idea-list
+      parameters: 
+        - name: assets-ids
+          in: header
+          description: Список id активов.
+          required: true
+          style: simple
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: asset-limit
+          in: header
+          description: Лимит на количество возвращаемых идей.
+          required: false
+          style: simple
+          schema:
+            type: integer
+            default: 100
       responses:
         '200':
-          description: OK
+          description: Массив инвест идей.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Idea'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /ivest-ideas/{id}:
+    get: 
+      summary: Получить инвест идею.
+      description: Получить одну инвест идею по ее id.
+      operationId: ivest-idea
+      parameters: 
+        - name: id
+          in: path
+          required: true
+          style: simple
+          schema: 
+            type: integer
+      responses:
+        '200':
+          description: Одна ивенст идея.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Idea'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      
+components:
+  schemas:
+    Idea:
+      allOf:
+        - $ref: '#/components/schemas/NewIdea'
+        - type: object
+          required:
+          - id
+          properties:
+            id:
+              type: integer
+              format: int64
+
+    NewIdea:
+      type: object
+      required:
+        - id  
+      properties:
+        id:
+          type: string
+        asset:
+          type: string
+        analytic:
+          type: string
+        action:
+          type: string
+        factors:
+          type: string
+        price:
+          type: number
+        expiration-date:
+          type: string
+
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
 ```
+
+## Экранные формы
+> Адрес API: https://server.com/api/invest-ideas/v1
+
+### Список инвест идей
+> Адрес API: https://server.com/api/invest-ideas/v1
+Показывает инвест идеи с возможностью сортировки и фильтрации по всем полям.
+| Элемент            | Описание                                                                    | API запрос                  | Источник данных                              |
+| ------------------ | --------------------------------------------------------------------------- | --------------------------- | -------------------------------------------- |
+| Актив              | Наименование актива                                                         | GET <Адрес API>/ivest-ideas | Поле "asset" элемента массива JSON           |
+| Рекомендуемая Цена | Цена по которой Аналитик идем рекомендует действовать с активом.            | GET <Адрес API>/ivest-ideas | Поле "price" элемента массива JSON           |
+| Дата истечения     | Наименование актива                                                         | GET <Адрес API>/ivest-ideas | Поле "expiration-date" элемента массива JSON |
+| Аналитик           | Конкретный Аналитик-автор идеи. Пример: Вася; Ира.                          | GET <Адрес API>/ivest-ideas | Поле "analytic" элемента массива JSON        |
+| Кнопка "Действие"  | Действие: "Купить"; "Продать"; "Держать".                                   | GET <Адрес API>/ivest-ideas | Поле "action" элемента массива JSON          |
+| Кнопка "Подробнее" | Открывает экран "Инвест идея". Делает запрос к энд поинту /ivest-ideas/{id} | GET <Адрес API>/ivest-ideas |                                              |
+| Идентификатор идеи | Скрытое поле для передачи запроса                                           | GET <Адрес API>/ivest-ideas | Поле "id" элемента массива JSON              |
+
+### Инвест идея
+Показывает подробную информацию об одной инвест идее.
+> Адрес API: https://server.com/api/invest-ideas/v1
+| Элемент            | Описание                                                                                   | API запрос                       | Источник данных             |
+| ------------------ | ------------------------------------------------------------------------------------------ | -------------------------------- | --------------------------- |
+| Актив              | Наименование актива                                                                        | GET <Адрес API>/ivest-ideas/{id} | Поле "asset" JSON           |
+| Рекомендуемая Цена | Цена по которой Аналитик идем рекомендует действовать с активом.                           | GET <Адрес API>/ivest-ideas/{id} | Поле "price" JSON           |
+| Дата истечения     | Наименование актива                                                                        | GET <Адрес API>/ivest-ideas/{id} | Поле "expiration-date" JSON |
+| Аналитик           | Конкретный Аналитик-автор идеи. Пример: Вася; Ира.                                         | GET <Адрес API>/ivest-ideas/{id} | Поле "analytic" JSON        |
+| Факторы            | Факторы которые влияют на рекомендацию Аналитика                                           | GET <Адрес API>/ivest-ideas/{id} | Поле "factors" JSON         |
+| Кнопка "Действие"  | Действие: "Купить"; "Продать"; "Держать".                                                  | GET <Адрес API>/ivest-ideas/{id} | Поле "action" JSON          |
+| Кнопка "Назад"     | Возвращает к списку на экран "Список инвест идей". Делает запрос к энд поинту /ivest-ideas | GET <Адрес API>/ivest-ideas/{id} | Поле "action" JSON          |

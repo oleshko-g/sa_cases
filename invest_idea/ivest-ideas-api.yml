@@ -95,7 +95,7 @@ components:
           type: string
         analytic:
           type: string
-        actions:
+        action:
           type: string
         factors:
           type: string
