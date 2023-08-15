@@ -8,7 +8,7 @@
 
 
 ## Модель данных.
-> Примечание 1: invest_idea - главная сущность. Остальные сущности представлены упрощенно. 
+> Примечание 1: invest_idea - главная сущность. Остальные сущности представлены упрощенно.  
 > Примечание 2: PostgreSQL СУБД.
 ```mermaid
 erDiagram
@@ -41,7 +41,8 @@ erDiagram
     ivest_idea }o--|| action : ""
 ```
 
-## SQL скрипт создания таблиц
+## SQL скрипты
+### Cоздание таблиц
 ```SQL
 USE db_assets;
 
@@ -91,4 +92,23 @@ CREATE TABLE countries
       REFERENCES actions( action_id )
       ON DELETE CASCADE
 );
+```
+### Хранимые процедуры
+```SQL
+CREATE OR REPLACE FUNCTION get_ivest_ideas (asset_ids ARRAY) --получить список инвест идей по массиову id активов
+RETURNS void AS $
+BEGIN
+  SELECT
+      asset_id
+    , analytic_id
+    , action_id
+    , invest_factors
+    , price
+    , expiration_date
+  FROM
+  WHERE
+    asset_id IN (asset_ids)
+END
+$ LANGUAGE plpgsql;
+
 ```
