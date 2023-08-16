@@ -14,5 +14,5 @@ cooperation  }o--|| legal_entity : "возглавляет" 
 cooperation ||--|{ cooperation_members : "объединяет"
 legal_entity ||--|{ cooperation_members : "входит"
 representer ||--o{ representer_credentials : "получает полномочия"
-representer_credentials ||--o{ cooperation : "предоставляет полномочия" 
+representer_credentials }o--|| cooperation : "предоставляет полномочия"
 ```
