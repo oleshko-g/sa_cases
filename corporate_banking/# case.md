@@ -61,6 +61,9 @@ representer }o--|| individual : "представляет ЮЛ"
 ```
 ## Диаграмма последовательности
 ```mermaid
+---
+title: Сервис "Дашборд по счетам кооперации"
+---
 sequenceDiagram
 actor СФЛ
 participant АС4
