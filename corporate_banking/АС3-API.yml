@@ -1,6 +1,6 @@
 openapi: "3.0.2"
 info:
-  title: Инвест идеи API
+  title: Продуктовая фабрика АС3 API
   version: "1.0"
 servers:
   - url: https://as3.bank.ru/api/v1
