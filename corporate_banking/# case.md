@@ -137,19 +137,19 @@ end
 
 ## Спецификация API
 ```YAML
-openapi: '3.0.2'
+openapi: "3.0.2"
 info:
-  title: Инвест идеи API
-  version: '1.0'
+  title: Продуктовая фабрика АС3 API
+  version: "1.0"
 servers:
   - url: https://as3.bank.ru/api/v1
 paths:
-  /representer-credentiols:
+  /representer-credentials:
     get:
-      summary:  Получить права СФЛ.
+      summary: Получить права СФЛ.
       description: Получить права СФЛ id представителя и id ЮЛ. Максимальный лимит по умолчанию 100.
       operationId: invest-idea-list
-      parameters: 
+      parameters:
         - name: representer-id
           in: header
           description: id представителя.
@@ -173,41 +173,52 @@ paths:
             type: integer
             default: 100
       responses:
-        '200':
+        "200":
           description: Массив коопераций с правом на просмотр данных.
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/cooperations'
+                  $ref: "#/components/schemas/cooperations"
+        "400":
+          description: Некорректный запрос.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Ошибка сервера.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"        
         default:
           description: Непредвиденная ошибка
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/error"
 components:
   schemas:
     cooperations:
       allOf:
-        - $ref: '#/components/schemas/cooperation'
+        - $ref: "#/components/schemas/cooperation"
         - type: object
           required:
-          - id
+            - id
           properties:
             id:
               type: integer
-              format: int64
 
     cooperation:
       type: object
       required:
-        - id  
+        - id
       properties:
         id:
           type: string
-    Error:
+    error:
       type: object
       required:
         - code
@@ -215,7 +226,7 @@ components:
       properties:
         code:
           type: integer
-          format: int32
         message:
           type: string
+
 ```
