@@ -39,16 +39,35 @@ F-0: Дашборд по счетам кооперации.
 Как Связанное Физическое Лицо,  
 я хочу просматривать дашборд по рассчетным счетам доступных коопераций,  
 чтобы действовать на выполнение общей задачи кооперации.
-```mermaid
 
+## Логическая модель данных
+```mermaid
 erDiagram
-legal_entity
-representer
-bank_account
-cooperation
-cooperation_members
-representer_credentials
-individual
+legal_entity {int legal_entity_id PK}
+representer {
+int representer_id PK
+int legal_entity_id FK
+int individual_id FK
+}
+bank_account {
+int bank_account_id PK
+}
+cooperation {
+int cooperation_id PK
+int legal_entity_id FK "Владелец"
+}
+cooperation_members {
+int cooperation_id FK
+int legal_entity_id FK "Член кооперации"
+}
+representer_credentials {
+int representer_credentials_id PK
+int representer_id FK
+int cooperation_id FK
+}
+individual {
+int individual_id FK
+}
 
 legal_entity ||--o{ representer : "назначает представителя"
 bank_account }|--|| legal_entity : "владеет"
