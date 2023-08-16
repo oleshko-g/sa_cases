@@ -13,6 +13,6 @@ bank_account }|--|| legal_entity : "владеет"
 cooperation  }o--|| legal_entity : "возглавляет" 
 cooperation ||--|{ cooperation_members : "объединяет"
 legal_entity ||--|{ cooperation_members : "входит"
-representer ||--o{ representer_credentials : "получает полномочия"
-representer_credentials }o--|| cooperation : "предоставляет полномочия"
+representer ||--|{ representer_credentials : "получает полномочия"
+representer_credentials }|--|| cooperation : "предоставляет полномочия"
 ```
