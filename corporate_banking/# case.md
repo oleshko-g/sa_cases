@@ -66,10 +66,10 @@ title: Сервис "Дашборд по счетам кооперации"
 ---
 sequenceDiagram
 actor СФЛ
-participant АС4
-participant АС2
-participant АС3
-participant АС1
+participant АС4 as Интернет-банк (АС4)
+participant АС2 as Фабрика данных (АС2)
+participant АС3 as Продуктовая фабрика (АС3)
+participant АС1 as Транзакционная (АС1)
 
 loop
 АС1->>АС2:реплицировать данные транзакций
