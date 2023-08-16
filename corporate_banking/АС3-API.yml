@@ -42,6 +42,18 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/cooperations"
+        "400":
+          description: Некорректный запрос.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Ошибка сервера.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"        
         default:
           description: Непредвиденная ошибка
           content:
