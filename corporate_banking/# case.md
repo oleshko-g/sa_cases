@@ -134,3 +134,88 @@ note right of АС1: возможно дорогая операция. Обсу�
 АС4--)СФЛ: отобразить данные в дашборде
 end
 ```
+
+## Спецификация API
+```YAML
+openapi: '3.0.2'
+info:
+  title: Инвест идеи API
+  version: '1.0'
+servers:
+  - url: https://as3.bank.ru/api/v1
+paths:
+  /representer-credentiols:
+    get:
+      summary:  Получить права СФЛ.
+      description: Получить права СФЛ id представителя и id ЮЛ. Максимальный лимит по умолчанию 100.
+      operationId: invest-idea-list
+      parameters: 
+        - name: representer-id
+          in: header
+          description: id представителя.
+          required: true
+          style: simple
+          schema:
+            type: integer
+        - name: legal-entity-id
+          in: header
+          description: id представителя.
+          required: true
+          style: simple
+          schema:
+            type: integer
+        - name: credentials-limit
+          in: header
+          description: Лимит на количество возвращаемых элементов.
+          required: false
+          style: simple
+          schema:
+            type: integer
+            default: 100
+      responses:
+        '200':
+          description: Массив коопераций с правом на просмотр данных.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/cooperations'
+        default:
+          description: Непредвиденная ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    cooperations:
+      allOf:
+        - $ref: '#/components/schemas/cooperation'
+        - type: object
+          required:
+          - id
+          properties:
+            id:
+              type: integer
+              format: int64
+
+    cooperation:
+      type: object
+      required:
+        - id  
+      properties:
+        id:
+          type: string
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+```
