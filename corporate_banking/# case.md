@@ -18,12 +18,14 @@ bank_account
 cooperation
 cooperation_members
 representer_credentials
+individual
 
-legal_entity ||--o{ representer : "выдает полномочия"
+legal_entity ||--o{ representer : "назначает представителя"
 bank_account }|--|| legal_entity : "владеет"
 cooperation  }o--|| legal_entity : "возглавляет" 
 cooperation ||--|{ cooperation_members : "объединяет"
 legal_entity ||--|{ cooperation_members : "входит"
 representer ||--|{ representer_credentials : "получает полномочия"
 representer_credentials }|--|| cooperation : "предоставляет полномочия"
+representer }o--|| individual : "представляет ЮЛ"
 ```
