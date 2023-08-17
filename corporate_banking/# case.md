@@ -178,7 +178,7 @@ paths:
   /representer-credentials:
     get:
       summary: Получить права СФЛ.
-      description: Получить права СФЛ id представителя и id ЮЛ. Максимальный лимит по умолчанию 100.
+      description: Получить права СФЛ по id представителя и id ЮЛ. Максимальный лимит по умолчанию 100.
       operationId: invest-idea-list
       parameters:
         - name: representer-id
