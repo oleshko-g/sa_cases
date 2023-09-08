@@ -27,3 +27,49 @@
   1. Собирать статистику о количестве пользователей
   2. Отрпавлять пуш-уведомления
   3. Отправлять Email рассылки 
+
+```mermaid
+erDiagram
+user {
+string email "UNIQUE"
+string name
+string password "CONSTRAINT от 8 до 16, а также задать требования, чтобы он содержал как минимум одну строчную и прописную букву латинского алфавита"
+}
+room { 
+string name
+binary icon
+room_type type
+}
+device {
+string(12) number "UNIQUE"
+string model
+string name
+}
+home
+automation {
+string(30) name
+array weekdays
+time start_time
+time end_time
+}
+automation_devices {
+device device
+enum action "Перечисление: включено, выключено, недоступно"
+}
+home_owner
+home_device
+
+user ||--|{ home_owner : owns
+home ||--|{ home_owner : belongs
+
+home ||--o{ room : "contains zero and up to 10"
+
+device ||--o{ home_device : belongs
+home ||--o{ home_device : "contains zero and up to 100"
+
+home ||--o{ automation : "contains zero and up to 10"
+
+automation ||--|{ automation_devices : ""
+device }|--o{ automation_devices : ""
+
+```
