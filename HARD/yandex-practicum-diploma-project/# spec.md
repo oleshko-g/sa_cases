@@ -33,7 +33,7 @@ erDiagram
 user {
 string email "UNIQUE"
 string name
-string password "CONSTRAINT от 8 до 16, а также задать требования, чтобы он содержал как минимум одну строчную и прописную букву латинского алфавита"
+string password "CONSTRAINT: min 8, max 16 символов; min 1 A-Z, min 1 a-z"
 }
 room { 
 string name
