@@ -63,6 +63,7 @@ user ||--|{ home_owner : owns
 home ||--|{ home_owner : belongs
 
 home ||--o{ room : "contains zero and up to 10"
+room ||--o{ home_device : "contains"
 
 device ||--o{ home_device : belongs
 home ||--o{ home_device : "contains zero and up to 100"
@@ -73,3 +74,8 @@ automation ||--|{ automation_devices : ""
 device }|--o{ automation_devices : ""
 
 ```
+
+## Словарь данных
+| Атрибут | Описание                    | Тип                     | Длина | Ограничения |
+| ------- | --------------------------- | ----------------------- | ----- | ----------- |
+| user    | Учетная запись пользователя | Email + name + password |
