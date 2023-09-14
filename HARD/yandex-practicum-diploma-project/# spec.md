@@ -44,6 +44,7 @@ device {
 string(12) number "UNIQUE"
 string model
 string name
+enum action "Перечисление: включено, выключено, недоступно"
 }
 home
 automation {
@@ -54,7 +55,7 @@ time end_time
 }
 automation_devices {
 device device
-enum action "Перечисление: включено, выключено, недоступно"
+enum action "Перечисление: включить, выключить"
 }
 home_owner
 home_device
