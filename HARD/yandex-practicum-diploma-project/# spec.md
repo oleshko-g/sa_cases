@@ -64,7 +64,7 @@ user ||--|{ home_owner : owns
 home ||--|{ home_owner : belongs
 
 home ||--o{ room : "contains zero and up to 10"
-room ||--o{ home_device : "contains"
+room |o--o{ home_device : "contains"
 
 device ||--o{ home_device : belongs
 home ||--o{ home_device : "contains zero and up to 100"
