@@ -53,7 +53,7 @@ array weekdays
 time start_time
 time end_time
 }
-automation_devices {
+automation_device {
 device device
 enum action "Перечисление: включить, выключить"
 }
@@ -71,8 +71,8 @@ home ||--o{ home_device : "contains zero and up to 100"
 
 home ||--o{ automation : "contains zero and up to 10"
 
-automation ||--|{ automation_devices : ""
-device }|--o{ automation_devices : ""
+automation ||--|{ automation_device : ""
+device }|--o{ automation_device : ""
 
 ```
 
@@ -89,4 +89,4 @@ device }|--o{ automation_devices : ""
 | device             |                             |                         |
 | home_device        |                             |                         |
 | automation         |                             |                         |
-| automation_devices |                             |                         |
+| automation_device |                             |                         |
