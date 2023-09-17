@@ -30,49 +30,56 @@
 
 ```mermaid
 erDiagram
-user {
-string email "UNIQUE"
-string name
-string password "CONSTRAINT: min 8, max 16 символов; min 1 A-Z, min 1 a-z"
-}
-room { 
-string name
-binary icon
-room_type type
-}
-device {
-string(12) number "UNIQUE"
-string model
-string name
-enum action "Перечисление: включено, выключено, недоступно"
-}
-home
-automation {
-string(30) name
-array weekdays
-time start_time
-time end_time
-}
-automation_device {
-device device
-enum action "Перечисление: включить, выключить"
-}
-home_owner
-home_device
+   user {
+      string email "UNIQUE"
+      string name "CONSTRAINT: А-я"
+      string password "CONSTRAINT: min 8, max 16 символов; min 1 A-Z, min 1 a-z"
+   }
+   room { 
+      string name
+      binary icon
+      room_type type
+   }
+   room_type {}
+   device {
+      string(12) number "UNIQUE"
+      string model
+      string name
+      device_type type
+      enum state "Перечисление: включено, выключено, недоступно"
+   }
+   home {}
+   automation {
+      string(30) name
+      array weekdays
+      time start_time
+      time end_time
+   }
+   automation_scenario_step {
+      int order_number
+      device device
+      enum action "Перечисление: включить, выключить"
+   }
+   home_owner {}
+   home_device {}
 
-user ||--|{ home_owner : owns
-home ||--|{ home_owner : belongs
+   device_type
 
-home ||--o{ room : "contains zero and up to 10"
-room |o--o{ home_device : "contains"
+   user ||--|{ home_owner : owns
+   home ||--|{ home_owner : belongs
 
-device ||--o{ home_device : belongs
-home ||--o{ home_device : "contains zero and up to 100"
+   home ||--o{ room : "contains zero and up to 10"
+   room |o--o{ home_device : "contains"
+   room |o--|| room_type : ""
 
-home ||--o{ automation : "contains zero and up to 10"
+   device ||--o{ home_device : belongs
+   device_type ||--o{ device : ""
+   home ||--o{ home_device : "contains zero and up to 100"
 
-automation ||--|{ automation_device : ""
-device }|--o{ automation_device : ""
+   home ||--o{ automation : "contains zero and up to 10"
+
+   automation ||--|{ automation_scenario_step : ""
+   device }|--o{ automation_scenario_step : ""
 
 ```
 
@@ -89,4 +96,4 @@ device }|--o{ automation_device : ""
 | device            | Умное устройство                          |                         |
 | home_device       | Список умных устройтв дома                |                         |
 | automation        | Сценарий автоматизации                    |                         |
-| automation_device | Список устройств в сценарии автоматизации |                         |
+| automation_scenario_step | Список устройств в сценарии автоматизации |                         |
