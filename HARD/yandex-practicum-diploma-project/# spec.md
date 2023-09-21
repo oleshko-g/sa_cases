@@ -46,7 +46,6 @@ erDiagram
       string model
       string name
       device_type type
-      enum state "Перечисление: включено, выключено, недоступно"
    }
    home {}
    automation {
@@ -61,7 +60,10 @@ erDiagram
       enum action "Перечисление: включить, выключить"
    }
    home_owner {}
-   home_device {}
+   home_device {
+   enum state "Перечисление: включено, выключено, недоступно"
+   enum energy_mode "Перечисление: Энергосбережение, По умолчанию"
+   }
 
    device_type
 
