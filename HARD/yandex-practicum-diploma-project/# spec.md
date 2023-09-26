@@ -79,10 +79,17 @@ erDiagram
       binary      icon
       room_type   type
    }
-
+   week_day {
+      int         number
+      string      name
+   }
+   
+   automation_week_day {
+      automation  automation
+      week_day    week_day
+   }
    automation {
       string(30)  name
-      array       weekdays "Примечание: Массив. Хранить дни недели в отдельной таблице бессмысленно. Их количество не будет увеличиваться или меняться."
       time        start_time "Примечание: Время старта и финиша уже есть."
       time        end_time 
       boolean     status
@@ -95,20 +102,22 @@ erDiagram
    }
 
 
-   user        ||--|{ home_owner : "owns 1 and up to 10 homes"
-   home        ||--|{ home_owner : belongs
+   user                 ||--|{ home_owner : "owns 1 and up to 10 homes"
+   home                 ||--|{ home_owner : belongs
 
-   room        }o--|| home : "contains 0 and up to 10 rooms"
-   room        |o--o{ device : "contains"
-   room        }o--|| room_type : ""
+   room                 }o--|| home : "contains 0 and up to 10 rooms"
+   room                 |o--o{ device : "contains"
+   room                 }o--|| room_type : ""
 
-   device      }o--|| device_type : ""
-   home        ||--o{ device : "contains 0 and up to 100 devices"
+   device               }o--|| device_type : ""
+   home                 ||--o{ device : "contains 0 and up to 100 devices"
 
-   home        ||--o{ automation : "contains 0 and up to 10 automations"
+   home                 ||--o{ automation : "contains 0 and up to 10 automations"
 
-   automation  ||--|{ automation_scenario_step : ""
-   device      ||--o{ automation_scenario_step : ""
+   automation_week_day  }o--|| week_day : "consists"
+   automation           ||--o{ automation_week_day : ""
+   automation           ||--|{ automation_scenario_step : ""
+   device               ||--o{ automation_scenario_step : ""
 
 ```
 
@@ -169,13 +178,21 @@ erDiagram
 | home                     |                                                                                                                                      | home                     |               |
 | room                     |                                                                                                                                      | room                     |               |
 |                          |                                                                                                                                      |                          |               |
+| week_day                 | День недели                                                                                                                          | + number                 |               |
+|                          |                                                                                                                                      | + name                   |               |
+| number                   |                                                                                                                                      | Число                    |               |
+| name                     |                                                                                                                                      | Строка                   |               |
+|                          |                                                                                                                                      |                          |               |
+| automation_week_day      | Дни недели в сценариях                                                                                                               | + automation             |               |
+|                          |                                                                                                                                      | + week_day               |               |
+| automation               |                                                                                                                                      | automation               |               |
+| week_day                 |                                                                                                                                      | week_day                 |               |
+|                          |                                                                                                                                      |                          |               |
 | automation               | Сценарий автоматизации                                                                                                               | + name                   |               |                                                                        |
-|                          |                                                                                                                                      | + weekdays               |               |
 |                          |                                                                                                                                      | + start_time             |               |
 |                          |                                                                                                                                      | + end_time               |               |
 |                          |                                                                                                                                      | + status                 |               |
 | name                     |                                                                                                                                      | Строка                   | 255           |                                                                        |
-| weekdays                 |                                                                                                                                      | Строка                   | 255           |                                                                        |
 | start_time               | время старта                                                                                                                         | Время. чч:мм             |               |                                                                        |
 | end_time                 | время окончания                                                                                                                      | Время. чч:мм             |               |                                                                        |
 | status                   | Состояние сценария. Чтобы деактивировать, не удалять.                                                                                | Булево                   |               |
