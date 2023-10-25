@@ -1,0 +1,507 @@
+{
+  "id" : 1,
+  "name" : "Name",
+  "description" : "Description",
+  "lastModifiedDate" : "2023-10-25T10:45:29Z",
+  "properties" : {
+    "structurizr.dsl" : "d29ya3NwYWNlIHsKCiAgICBtb2RlbCB7CiAgICAgICAgaW52ZXN0b3IgPSBwZXJzb24gItCY0L3QstC10YHRgtC+0YAiCgogICAgICAgIGdyb3VwICLQotC40L3RjNC60L7RhNGEINCR0LDQvdC6IiB7CiAgICAgICAgICAgIHN1cHBvcnRfZW1wbG95ZWUgPSBwZXJzb24gItCh0L7RgtGA0YPQtNC90LjQuiDRgdC70YPQttCx0Ysg0LfQsNCx0L7RgtGLIgogICAgICAgICAgICAKICAgICAgICAgICAgdGlua29mZl9pbnZlc3RtZW50c19pb3MgPSBzb2Z0d2FyZVN5c3RlbSAiaU9TINC/0YDQuNC70L7QttC10L3QuNC1INCi0LjQvdGM0LrQvtGE0YQg0JjQvdCy0LXRgdGC0LjRhtC40LgiIHsKICAgICAgICAgICAgICAgIHN0b2NrcyA9IGdyb3VwICLQkNC60YbQuNC4IiB7CiAgICAgICAgICAgICAgICAgICAgc3RvY2tzX2Zyb250ID0gY29udGFpbmVyICLQmNC90YLQtdGA0YTQtdC50YEg0LDQutGG0LjQuSIKICAgICAgICAgICAgICAgICAgICBzdG9ja3NfYmFjayA9IGNvbnRhaW5lciAi0JHRjdC60LXQvdC0INCw0LrRhtC40LkiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICB0cmFkaW5nID0gZ3JvdXAgItCi0L7RgNCz0L7QstC70Y8iIHsKICAgICAgICAgICAgICAgICAgICB0cmFkaW5nX2Zyb250ID0gY29udGFpbmVyICLQmNC90YLQtdGA0YTQtdC50YEg0YLQvtGA0LPQvtCy0LvQuCIKICAgICAgICAgICAgICAgICAgICB0cmFkaW5nX2JhY2sgPSBjb250YWluZXIgItCR0Y3QutC10L3QtCDRgtC+0YDQs9C+0LLQu9C4IgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgYW5hbHl0aWNzID0gZ3JvdXAgItCQ0L3QsNC70LjRgtC40LrQsCDQv9C+0YDRgtGE0LXQu9GPIiB7CiAgICAgICAgICAgICAgICAgICAgYW5hbHl0aWNzX2Zyb250ID0gY29udGFpbmVyICLQmNC90YLQtdGA0YTQtdC50YEg0L/QvtGA0YLRhNC10LvRjyIKICAgICAgICAgICAgICAgICAgICBhbmFseXRpY3NfYmFjayA9IGNvbnRhaW5lciAi0JHRjdC60LXQvdC0INC/0L7RgNGC0YTQtdC70Y8iCiAgICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgc3VwcG9ydCA9IGdyb3VwICLQn9C+0LTQtNC10YDQttC60LAiIHsKICAgICAgICAgICAgICAgICAgICBzdXBwb3J0X2Zyb250ID0gY29udGFpbmVyICLQmNC90YLQtdGA0YTQtdC50YEg0L/QvtC00LTQtdGA0LbQutC4IgogICAgICAgICAgICAgICAgICAgIHN1cHBvcnRfYmFjayA9IGNvbnRhaW5lciAi0JHRjdC60LXQvdC0INC/0L7QtNC00LXRgNC20LrQuCIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgIH0KICAgICAgICBtb2V4ID0gc29mdHdhcmVTeXN0ZW0gItCc0L7RgdC60L7QstGB0LrQsNGPINCx0LjRgNC20LAiIHsKICAgICAgICAgICAgdGFncyAi0JLQvdC10YjQvdGP0Y8g0YHQuNGB0YLQtdC80LAiCiAgICAgICAgfSAgICAKICAgICAgICBzcGJleCA9IHNvZnR3YXJlU3lzdGVtICLQodCf0LEg0LHQuNGA0LbQsCIgewogICAgICAgICAgICB0YWdzICLQktC90LXRiNC90Y/RjyDRgdC40YHRgtC10LzQsCIKICAgICAgICB9CgogICAgICAgIGludmVzdG9yIC0+IHN0b2Nrc19mcm9udCAi0J/RgNC+0YHQvNCw0YLRgNC40LLQsNC10YIg0LjQvdGE0L7RgNC80LDRhtC40Y4g0L4g0LrQvtC90LrRgNC10YLQvdC+0Lkg0LDQutGG0LjQuCIKICAgICAgICBpbnZlc3RvciAtPiBzdG9ja3NfZnJvbnQgItCf0YDQvtGB0LzQsNGC0YDQuNCy0LDQtdGCINC/0L7QtNCx0L7RgNC60Lgg0LDQutGG0LjQuCAo0JLQt9C70LXRgtGLINC4INC/0LDQtNC10L3QuNGPKSIKICAgICAgICBzdG9ja3NfZnJvbnQgLT4gc3RvY2tzX2JhY2sgItCX0LDQv9GA0LDRiNC40LLQsNC10YIg0LTQsNC90L3Ri9C1INC+0LEg0LDQutGG0LjRj9GFIgogICAgICAgIHN0b2Nrc19iYWNrIC0+IG1vZXggItCf0L7Qu9GD0YfQsNC10YIg0LTQsNC90L3Ri9C1INC+0LEg0LDQutGG0LjRj9GFIgogICAgICAgIHN0b2Nrc19iYWNrIC0+IHNwYmV4ICLQn9C+0LvRg9GH0LDQtdGCINC00LDQvdC90YvQtSDQvtCxINCw0LrRhtC40Y/RhSIKICAgICAgICBzdG9ja3NfYmFjayAtPiBzdG9ja3NfZnJvbnQgItCe0YLQv9GA0LDQstC70Y/QtdGCINC00LDQvdC90YvQtSDQvtCxINCw0LrRhtC40Y/RhSIKCiAgICAgICAgaW52ZXN0b3IgLT4gdHJhZGluZ19mcm9udCAi0JLRi9GB0YLQsNCy0LvRj9C10YIg0LfQsNGP0LLQutC4INC90LAg0L/QvtC60YPQv9C60YMg0Lgg0L/RgNC+0LTQsNC20YMiCiAgICAgICAgdHJhZGluZ19mcm9udCAtPiB0cmFkaW5nX2JhY2sgItCe0YLQv9GA0LDQstC70Y/QtdGCINC30LDRj9Cy0LrQuCIKICAgICAgICB0cmFkaW5nX2JhY2sgLT4gbW9leCAi0J7QsdC80LXQvdC40LLQsNC10YLRgdGPINC30LDRj9Cy0LrQsNC80LgiCiAgICAgICAgdHJhZGluZ19iYWNrIC0+IHNwYmV4ICLQntCx0LzQtdC90LjQstCw0LXRgtGB0Y8g0LfQsNGP0LLQutCw0LzQuCIKCiAgICAgICAgaW52ZXN0b3IgLT4gYW5hbHl0aWNzX2Zyb250ICLQn9GA0L7RgdC80LDRgtGA0LjQstCw0LXRgiDQv9C+0LvRg9GH0LjRgtGMINC+0YLRh9C10YIg0L4g0LHRgNC+0LrQtdGA0YHQutC+0Lwg0YHRh9C10YLQtSIKICAgICAgICBhbmFseXRpY3NfZnJvbnQgLT4gYW5hbHl0aWNzX2JhY2sgItCX0LDQv9GA0LDRiNC40LLQsNC10YIg0LTQsNC90L3Ri9C1INC+INCx0YDQvtC60LXRgNGB0LrQuNGFINGB0YfQtdGC0LDRhSIKICAgICAgICBhbmFseXRpY3NfYmFjayAtPiBzdG9ja3NfYmFjayAi0J/QvtC70YPRh9Cw0LXRgiDQtNCw0L3QvdGL0LUg0L7QsSDQsNC60YbQuNGP0YUiCiAgICAgICAgYW5hbHl0aWNzX2JhY2sgLT4gYW5hbHl0aWNzX2JhY2sgItCk0L7RgNC80LjRgNGD0LXRgiDQvtGC0YfQtdGC0YsiCiAgICAgICAgCiAgICAgICAgaW52ZXN0b3IgLT4gc3VwcG9ydF9mcm9udCAi0J7RgtC/0YDQsNCy0LvRj9C10YIg0L7QsdGA0LDRidC10L3QuNGPINCyINGC0LXRhSDQv9C+0LTQtNC10YDQttC60YMiCiAgICAgICAgc3VwcG9ydF9mcm9udCAtPiBzdXBwb3J0X2JhY2sgItCh0L7RhdGA0LDQvdGP0LXRgiDQvtCx0YDQsNGJ0LXQvdC40Y8g0L/QvtC70YzQt9C+0LLQsNGC0LXQu9C10LkiCiAgICAgICAgc3VwcG9ydF9mcm9udCAtPiBzdXBwb3J0X2JhY2sgItCX0LDQv9GA0LDRiNC40LLQsNC10YIg0L7QsdGA0LDRidC10L3QuNGPINC/0L7Qu9GM0LfQvtCy0LDRgtC10LvQtdC5IgogICAgICAgIHN1cHBvcnRfYmFjayAtPiBzdXBwb3J0X2Zyb250ICLQntGC0L/RgNCw0LLQu9GP0LXRgiDQvtCx0YDQsNGJ0LXQvdC40Y8g0L/QvtC70YzQt9C+0LLQsNGC0LXQu9C10LkiCiAgICAgICAgc3VwcG9ydF9lbXBsb3llZSAtPiBzdXBwb3J0X2Zyb250ICLQn9C+0LzQvtCz0LDQtdGCINC/0L7Qu9GM0LfQvtCy0LDRgtC10LvRj9C8Igp9CgogICAgdmlld3MgewogICAgICAgIHRoZW1lIGRlZmF1bHQKICAgICAgICAKICAgICAgICBjb250YWluZXIgdGlua29mZl9pbnZlc3RtZW50c19pb3MgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICAgICAgCiAgICAgICAgfQoKICAgICAgICBzdHlsZXMgewogICAgICAgICAgICBlbGVtZW50ICLQktC90LXRiNC90Y/RjyDRgdC40YHRgtC10LzQsCIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjZDNkM2QzCiAgICAgICAgICAgICAgICBjb2xvciAjMDAwMDAwCiAgICAgICAgICAgICAgICBzaGFwZSBSb3VuZGVkQm94CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9CgoKCgogICAgCn0KCg=="
+  },
+  "configuration" : { },
+  "model" : {
+    "people" : [ {
+      "id" : "1",
+      "tags" : "Element,Person",
+      "properties" : {
+        "structurizr.dsl.identifier" : "investor"
+      },
+      "name" : "Инвестор",
+      "relationships" : [ {
+        "id" : "14",
+        "tags" : "Relationship",
+        "properties" : {
+          "structurizr.dsl.identifier" : "0b9471a3-84b3-45cd-86a8-39f8acaca0c9"
+        },
+        "sourceId" : "1",
+        "destinationId" : "4",
+        "description" : "Просматривает информацию о конкретной акции"
+      }, {
+        "id" : "15",
+        "sourceId" : "1",
+        "destinationId" : "3",
+        "description" : "Просматривает информацию о конкретной акции",
+        "linkedRelationshipId" : "14"
+      }, {
+        "id" : "16",
+        "tags" : "Relationship",
+        "properties" : {
+          "structurizr.dsl.identifier" : "9a22b61c-912b-4255-9123-5214e0567a6d"
+        },
+        "sourceId" : "1",
+        "destinationId" : "4",
+        "description" : "Просматривает подборки акции (Взлеты и падения)"
+      }, {
+        "id" : "23",
+        "tags" : "Relationship",
+        "properties" : {
+          "structurizr.dsl.identifier" : "83f07f78-0cd3-402d-add5-82f61f1a81be"
+        },
+        "sourceId" : "1",
+        "destinationId" : "6",
+        "description" : "Выставляет заявки на покупку и продажу"
+      }, {
+        "id" : "27",
+        "tags" : "Relationship",
+        "properties" : {
+          "structurizr.dsl.identifier" : "95d7de68-d7a1-49f0-a6f4-dce1c5db3b1e"
+        },
+        "sourceId" : "1",
+        "destinationId" : "8",
+        "description" : "Просматривает получить отчет о брокерском счете"
+      }, {
+        "id" : "31",
+        "tags" : "Relationship",
+        "properties" : {
+          "structurizr.dsl.identifier" : "1ef028c8-c16d-4502-ba69-7b43255304c9"
+        },
+        "sourceId" : "1",
+        "destinationId" : "10",
+        "description" : "Отправляет обращения в тех поддержку"
+      } ],
+      "location" : "Unspecified"
+    }, {
+      "id" : "2",
+      "tags" : "Element,Person",
+      "properties" : {
+        "structurizr.dsl.identifier" : "support_employee"
+      },
+      "name" : "Сотрудник службы заботы",
+      "relationships" : [ {
+        "id" : "35",
+        "tags" : "Relationship",
+        "properties" : {
+          "structurizr.dsl.identifier" : "fd9b5aaf-e76f-4d01-9888-7c78fb46d9ee"
+        },
+        "sourceId" : "2",
+        "destinationId" : "10",
+        "description" : "Помогает пользователям"
+      }, {
+        "id" : "36",
+        "sourceId" : "2",
+        "destinationId" : "3",
+        "description" : "Помогает пользователям",
+        "linkedRelationshipId" : "35"
+      } ],
+      "group" : "Тинькофф Банк",
+      "location" : "Unspecified"
+    } ],
+    "softwareSystems" : [ {
+      "id" : "3",
+      "tags" : "Element,Software System",
+      "properties" : {
+        "structurizr.dsl.identifier" : "tinkoff_investments_ios"
+      },
+      "name" : "iOS приложение Тинькофф Инвестиции",
+      "relationships" : [ {
+        "id" : "19",
+        "sourceId" : "3",
+        "destinationId" : "12",
+        "description" : "Получает данные об акциях",
+        "linkedRelationshipId" : "18"
+      }, {
+        "id" : "21",
+        "sourceId" : "3",
+        "destinationId" : "13",
+        "description" : "Получает данные об акциях",
+        "linkedRelationshipId" : "20"
+      } ],
+      "group" : "Тинькофф Банк",
+      "location" : "Unspecified",
+      "containers" : [ {
+        "id" : "6",
+        "tags" : "Element,Container",
+        "properties" : {
+          "structurizr.dsl.identifier" : "trading_front"
+        },
+        "name" : "Интерфейс торговли",
+        "relationships" : [ {
+          "id" : "24",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "2940868e-fd3e-4119-80a7-cd4d01dc6140"
+          },
+          "sourceId" : "6",
+          "destinationId" : "7",
+          "description" : "Отправляет заявки"
+        } ],
+        "group" : "Торговля",
+        "documentation" : { }
+      }, {
+        "id" : "10",
+        "tags" : "Element,Container",
+        "properties" : {
+          "structurizr.dsl.identifier" : "support_front"
+        },
+        "name" : "Интерфейс поддержки",
+        "relationships" : [ {
+          "id" : "32",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "f17f0252-505e-4e88-bda4-e96b211ceea4"
+          },
+          "sourceId" : "10",
+          "destinationId" : "11",
+          "description" : "Сохраняет обращения пользователей"
+        }, {
+          "id" : "33",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "524f1b58-69ed-4621-9b43-f05d66473858"
+          },
+          "sourceId" : "10",
+          "destinationId" : "11",
+          "description" : "Запрашивает обращения пользователей"
+        } ],
+        "group" : "Поддержка",
+        "documentation" : { }
+      }, {
+        "id" : "5",
+        "tags" : "Element,Container",
+        "properties" : {
+          "structurizr.dsl.identifier" : "stocks_back"
+        },
+        "name" : "Бэкенд акций",
+        "relationships" : [ {
+          "id" : "18",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "f27a9989-fbec-4f1e-9975-91e39ed133fc"
+          },
+          "sourceId" : "5",
+          "destinationId" : "12",
+          "description" : "Получает данные об акциях"
+        }, {
+          "id" : "20",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "a55f3798-53fe-41c2-bcdb-2ddf6abf7a1a"
+          },
+          "sourceId" : "5",
+          "destinationId" : "13",
+          "description" : "Получает данные об акциях"
+        }, {
+          "id" : "22",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "54c55e95-76e4-4212-8376-07903e9b8323"
+          },
+          "sourceId" : "5",
+          "destinationId" : "4",
+          "description" : "Отправляет данные об акциях"
+        } ],
+        "group" : "Акции",
+        "documentation" : { }
+      }, {
+        "id" : "7",
+        "tags" : "Element,Container",
+        "properties" : {
+          "structurizr.dsl.identifier" : "trading_back"
+        },
+        "name" : "Бэкенд торговли",
+        "relationships" : [ {
+          "id" : "25",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "458529aa-3429-42ae-8c80-3f0913ceaefa"
+          },
+          "sourceId" : "7",
+          "destinationId" : "12",
+          "description" : "Обменивается заявками"
+        }, {
+          "id" : "26",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "7e33425e-d773-479b-8a8f-59af81a2e654"
+          },
+          "sourceId" : "7",
+          "destinationId" : "13",
+          "description" : "Обменивается заявками"
+        } ],
+        "group" : "Торговля",
+        "documentation" : { }
+      }, {
+        "id" : "11",
+        "tags" : "Element,Container",
+        "properties" : {
+          "structurizr.dsl.identifier" : "support_back"
+        },
+        "name" : "Бэкенд поддержки",
+        "relationships" : [ {
+          "id" : "34",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "c3cd1356-bbd9-4fbb-835e-b4b206299930"
+          },
+          "sourceId" : "11",
+          "destinationId" : "10",
+          "description" : "Отправляет обращения пользователей"
+        } ],
+        "group" : "Поддержка",
+        "documentation" : { }
+      }, {
+        "id" : "4",
+        "tags" : "Element,Container",
+        "properties" : {
+          "structurizr.dsl.identifier" : "stocks_front"
+        },
+        "name" : "Интерфейс акций",
+        "relationships" : [ {
+          "id" : "17",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "d5a5349e-a43f-4cbb-8d57-70f86e6026f9"
+          },
+          "sourceId" : "4",
+          "destinationId" : "5",
+          "description" : "Запрашивает данные об акциях"
+        } ],
+        "group" : "Акции",
+        "documentation" : { }
+      }, {
+        "id" : "8",
+        "tags" : "Element,Container",
+        "properties" : {
+          "structurizr.dsl.identifier" : "analytics_front"
+        },
+        "name" : "Интерфейс портфеля",
+        "relationships" : [ {
+          "id" : "28",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "b7c31f51-19df-4f5a-9df7-b25a036fa804"
+          },
+          "sourceId" : "8",
+          "destinationId" : "9",
+          "description" : "Запрашивает данные о брокерских счетах"
+        } ],
+        "group" : "Аналитика портфеля",
+        "documentation" : { }
+      }, {
+        "id" : "9",
+        "tags" : "Element,Container",
+        "properties" : {
+          "structurizr.dsl.identifier" : "analytics_back"
+        },
+        "name" : "Бэкенд портфеля",
+        "relationships" : [ {
+          "id" : "29",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "5662956e-727a-4f1c-a2e6-d5d68ac31e36"
+          },
+          "sourceId" : "9",
+          "destinationId" : "5",
+          "description" : "Получает данные об акциях"
+        }, {
+          "id" : "30",
+          "tags" : "Relationship",
+          "properties" : {
+            "structurizr.dsl.identifier" : "4ac9970d-041f-4dee-b0a0-4663550f4f78"
+          },
+          "sourceId" : "9",
+          "destinationId" : "9",
+          "description" : "Формирует отчеты"
+        } ],
+        "group" : "Аналитика портфеля",
+        "documentation" : { }
+      } ],
+      "documentation" : { }
+    }, {
+      "id" : "12",
+      "tags" : "Element,Software System,Внешняя система",
+      "properties" : {
+        "structurizr.dsl.identifier" : "moex"
+      },
+      "name" : "Московская биржа",
+      "location" : "Unspecified",
+      "documentation" : { }
+    }, {
+      "id" : "13",
+      "tags" : "Element,Software System,Внешняя система",
+      "properties" : {
+        "structurizr.dsl.identifier" : "spbex"
+      },
+      "name" : "СПб биржа",
+      "location" : "Unspecified",
+      "documentation" : { }
+    } ]
+  },
+  "documentation" : { },
+  "views" : {
+    "containerViews" : [ {
+      "key" : "Container-001",
+      "order" : 1,
+      "softwareSystemId" : "3",
+      "dimensions" : {
+        "width" : 3800,
+        "height" : 3078
+      },
+      "externalSoftwareSystemBoundariesVisible" : true,
+      "elements" : [ {
+        "id" : "11",
+        "x" : 1649,
+        "y" : 2413
+      }, {
+        "id" : "12",
+        "x" : 2450,
+        "y" : 1025
+      }, {
+        "id" : "13",
+        "x" : 2440,
+        "y" : 1485
+      }, {
+        "id" : "1",
+        "x" : 199,
+        "y" : 384
+      }, {
+        "id" : "2",
+        "x" : 199,
+        "y" : 2363
+      }, {
+        "id" : "4",
+        "x" : 920,
+        "y" : 480
+      }, {
+        "id" : "5",
+        "x" : 1640,
+        "y" : 480
+      }, {
+        "id" : "6",
+        "x" : 899,
+        "y" : 1800
+      }, {
+        "id" : "7",
+        "x" : 1649,
+        "y" : 1800
+      }, {
+        "id" : "8",
+        "x" : 899,
+        "y" : 1188
+      }, {
+        "id" : "9",
+        "x" : 1649,
+        "y" : 1188
+      }, {
+        "id" : "10",
+        "x" : 899,
+        "y" : 2413
+      } ],
+      "relationships" : [ {
+        "id" : "32",
+        "vertices" : [ {
+          "x" : 1499,
+          "y" : 2563
+        } ]
+      }, {
+        "id" : "31",
+        "vertices" : [ {
+          "x" : 691,
+          "y" : 2279
+        } ]
+      }, {
+        "id" : "20"
+      }, {
+        "id" : "30",
+        "vertices" : [ {
+          "x" : 1785,
+          "y" : 1080
+        }, {
+          "x" : 1900,
+          "y" : 1071
+        }, {
+          "x" : 1980,
+          "y" : 1065
+        } ]
+      }, {
+        "id" : "18"
+      }, {
+        "id" : "29"
+      }, {
+        "id" : "17",
+        "vertices" : [ {
+          "x" : 1535,
+          "y" : 730
+        } ]
+      }, {
+        "id" : "28"
+      }, {
+        "id" : "16",
+        "vertices" : [ {
+          "x" : 775,
+          "y" : 750
+        } ]
+      }, {
+        "id" : "27",
+        "vertices" : [ {
+          "x" : 691,
+          "y" : 963
+        } ]
+      }, {
+        "id" : "26"
+      }, {
+        "id" : "25",
+        "vertices" : [ {
+          "x" : 2203,
+          "y" : 1667
+        } ]
+      }, {
+        "id" : "14",
+        "vertices" : [ {
+          "x" : 750,
+          "y" : 400
+        } ]
+      }, {
+        "id" : "35"
+      }, {
+        "id" : "24"
+      }, {
+        "id" : "23",
+        "vertices" : [ {
+          "x" : 691,
+          "y" : 1667
+        } ]
+      }, {
+        "id" : "34",
+        "vertices" : [ {
+          "x" : 1499,
+          "y" : 2413
+        } ]
+      }, {
+        "id" : "33",
+        "vertices" : [ {
+          "x" : 1499,
+          "y" : 2713
+        } ]
+      }, {
+        "id" : "22",
+        "vertices" : [ {
+          "x" : 1505,
+          "y" : 545
+        } ]
+      } ]
+    } ],
+    "configuration" : {
+      "branding" : { },
+      "styles" : {
+        "elements" : [ {
+          "tag" : "Внешняя система",
+          "background" : "#d3d3d3",
+          "color" : "#000000",
+          "shape" : "RoundedBox"
+        } ]
+      },
+      "themes" : [ "https://static.structurizr.com/themes/default/theme.json" ],
+      "terminology" : { },
+      "lastSavedView" : "Container-001"
+    }
+  }
+}
