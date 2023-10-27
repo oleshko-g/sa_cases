@@ -41,13 +41,36 @@
 
 ```mermaid
 sequenceDiagram
+   # Акторы
    actor investor as Инвестор
+   participant stocks_front as Интерфейс акций
+   participant stocks_back as Бэкенд акций
    participant trading_front as Интерфейс торговли
    participant trading_back as Бэкенд торговли
    participant stocks_back as Бэкенд акций
    participant moex as Московская биржа
    participant spbex as СПб биржа
 
+   # Последовательности
+   autonumber
+   par Периодическое обновление данных об акциях Московской биржи
+      stocks_back -) moex: Запросить данные об акциях (список id)
+      moex --) stocks_back: Отправить данные об акциях ({данные акций})
+   and Периодическое обновление данных об акциях СПБ биржи
+      stocks_back -) spbex: Запросить данные об акциях (список id)
+      spbex --) stocks_back: Отправить данные об акциях ({данные акций})
+   end
+   autonumber 1
+   investor->> stocks_front: Просмотривает подброку "Взлеты и падения"
+   stocks_front ->> stocks_back: Запросить данные об акциях (список id)
+   stocks_back -->> stocks_front: Отправить данные об акциях ({данные акций})
+   stocks_front -->> investor: Показать подборку "Взлеты и падения": {данные подборки акций}
+   autonumber 1
+   investor ->> stocks_front: Просматривает информацию о конкретной акции (id акции)
+   stocks_front ->> stocks_back: Запросить данные о конкретной акции (id акции)
+   stocks_back -->> stocks_front: Отправить данные об акциях ({данные акции})
+   stocks_front -->> investor: Показать подборку "Взлеты и падения": {данные акции}
+   autonumber 1
    investor->>+trading_front: Выставляет заявки на покупку или продажу(id актива)
    trading_front->>+trading_back: Выставить заявк на покупку или продажу(id актива)
 
@@ -63,7 +86,8 @@ sequenceDiagram
          trading_front -->> investor: "Заявка №{id заявки} {статус заявки}"
       end
    else Заявка на СПб биржу
-      trading_back ->> spbex: Выставить заявку
+      autonumber 3
+      trading_back ->> spbex: Выставить заявку ({данные заявки})
       alt Успех
          spbex -->> trading_back: Заявка исполнена(id заявки, статус заявки)
          trading_back -->> trading_front: Заявка исполнена(id заявки, статус заявки)
