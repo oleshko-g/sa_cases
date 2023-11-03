@@ -116,132 +116,170 @@ sequenceDiagram
 
 ```JSON
 {
-   "$schema": "https://ivestments.tinkoff.ru/draft/2023-10/schema",
-   "$id": "https://https://ivestments.tinkoff.ru/draft/2023-10/schema/bidding-leader-digest.json",
-   "title": "Лидеры торгов бирже",
-   "description": "Дайджест топов акций которые больше всего поднялись или опустились в цене за последние сутки",
-   "type": "object",
-   "properties": {
-      "top-cutoff-title": {
-         "description": "Заголовок мест топов",
-         "type": "string"
-      },
-      "top-cutoff": {
-         "description": "Количество мест топов",
-         "type": "integer",
-         "minimum": 1
-      },
-      "digest-name": {
-         "description": "Название дайджеста",
-         "type": "string"
-      },
-      "tops": {
-         "description": "Коллекция топов",
-         "type": "array",
-         "items": {
+    "$schema": "https://ivestments.tinkoff.ru/draft/2023-10/schema",
+    "$id": "https://https://ivestments.tinkoff.ru/draft/2023-10/schema/bidding-leader-digest.json",
+    "title": "Лидеры торгов бирже",
+    "description": "Дайджест топов акций которые больше всего поднялись или опустились в цене за последние сутки",
+    "type": "object",
+    "properties": {
+        "top-cutoff-title": {
+            "description": "Заголовок мест топов",
+            "type": "string",
+            "examples": [
+                "ТОП"
+            ]
+        },
+        "top-cutoff": {
+            "description": "Количество мест топов",
+            "type": "integer",
+            "minimum": 1,
+            "examples": [
+                "15"
+            ]
+        },
+        "digest-name": {
+            "description": "Название дайджеста",
+            "type": "string",
+            "examples": [
+                "Лидеры торгов на Мосбирже"
+            ]
+        },
+        "tops": {
+            "description": "Коллекция топов",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "top-title": {
+                        "description": "Заголовок топа",
+                        "type": "string",
+                        "examples": [
+                            "Взлеты дня",
+                            "Падения дня"
+                        ]
+                    },
+                    "top-description": {
+                        "description": "Описание топа",
+                        "type": "string",
+                        "maxLength": 1000,
+                        "examples": [
+                            "Акции, которые больше всего выросли в цене за послдедние сутки на Мосбирже.",
+                            "Акции, которые больше всего упали в цене за послдедние сутки на Мосбирже."
+                        ]
+                    },
+                    "top-list": {
+                        "description": "Список акций",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/$defs/top-list-item"
+                        }
+                    }
+                }
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        },
+        "disclaimer": {
+            "description": "Обязательная информация \"Не является инвестиционной рекомендацией\"",
+            "type": "string"
+        },
+        "required": [
+            "top-cutoff-title",
+            "top-cutoff",
+            "digest-name",
+            "tops"
+        ]
+    },
+    "$defs": {
+        "top-list-item": {
             "type": "object",
             "properties": {
-               "top-title": {
-                  "description": "Заголовок топа",
-                  "type": "string"
-               },
-               "top-description": {
-                  "description": "Описание топа",
-                  "type": "string",
-                  "maxLength": 1000
-               },
-               "top-list": {
-                  "description": "Список акций",
-                  "type": "array",
-                  "items": {
-                     "$ref": "#/$defs/top-list-item"
-                  }
-               }
+                "icon": {
+                    "description": "Ссылка на иконку акции",
+                    "type": "string",
+                    "maxLength": 255,
+                    "format": "uri"
+                },
+                "ticker-symbol": {
+                    "description": "Тикер акции",
+                    "type": "string",
+                    "maxLength": 6,
+                    "examples": [
+                        "MVID",
+                        "LKOH",
+                        "SPBE"
+                    ]
+                },
+                "issuer": {
+                    "description": "Компания-эмитент акции",
+                    "type": "string",
+                    "examples": [
+                        "М.Видео",
+                        "ЛУКОЙЛ",
+                        "СПБ Бибржа"
+                    ]
+                },
+                "price": {
+                    "description": "Текущая цена акции",
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "examples": [
+                        191.2,
+                        7253.5,
+                        140
+                    ]
+                },
+                "price-change-absolute": {
+                    "description": " цена акции",
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "examples": [
+                        10.001,
+                        250,
+                        12.02
+                    ]
+                },
+                "price-currency": {
+                    "description": "Знак валют акции",
+                    "type": "string",
+                    "maxLength": 1,
+                    "pattern": "\\p{Sc}",
+                    "examples": [
+                        "$",
+                        "₽",
+                        "€"
+                    ]
+                },
+                "price-change-percent": {
+                    "description": "Процент изменения цены акции. Передается в видел доли единицы.",
+                    "type": "number",
+                    "examples": [
+                        0.055193461332568,
+                        0.035696437495538,
+                        0.093920925144554
+                    ]
+                },
+                "is-tradable": {
+                    "description": "Признак доступности к торговле. false - когда торги на бирже закрыты или акция заблокирована.",
+                    "type": "boolean"
+                },
+                "is-tradable-icon": {
+                    "description": "Ссылка на иконку \"Недоступно к торговле\". Отображается, когда признак is-tradable = false",
+                    "type": "string",
+                    "maxLength": 255,
+                    "format": "uri"
+                },
+                "required": [
+                    "icon",
+                    "ticker-symbol",
+                    "issuer",
+                    "price",
+                    "price-change-absolute",
+                    "price-change-percent",
+                    "is-tradable"
+                ]
             }
-         },
-         "minItems": 1,
-         "uniqueItems": true
-      },
-      "disclaimer": {
-         "description":"Обязательная информация \"Не является инвестиционной рекомендацией\"",
-         "type": "string"
-      },
-      "required": [
-         "top-cutoff-title",
-         "top-cutoff",
-         "digest-name",
-         "tops"
-      ]
-   },
-   "$defs": {
-      "top-list-item": {
-         "type": "object",
-         "properties": {
-            "icon": {
-               "description": "Ссылка на иконку акции",
-               "type": "string",
-               "maxLength": 255,
-               "format": "uri"
-            },
-            "ticker-symbol": {
-               "description": "Тикер акции",
-               "type": "string",
-               "maxLength": 6
-            },
-            "issuer": {
-               "description": "Компания-эмитент акции",
-               "type": "string"
-            },
-            "price": {
-               "description": "Текущая цена акции",
-               "type": "number",
-               "exclusiveMinimum": 0
-            },
-            "price-change-absolute": {
-               "description": " цена акции",
-               "type": "number",
-               "exclusiveMinimum": 0
-            },
-            "price-currency": {
-               "description": "Знак валют акции",
-               "type": "string",
-               "maxLength": 1,
-               "pattern": "\\p{Sc}"
-            },
-            "price-change-percent": {
-               "description": "Процент изменения цены акции",
-               "type": "number"
-            },
-            "is-tradable": {
-               "description": "Признак доступности к торговле",
-               "type": "boolean"
-            },
-            "is-tradable-icon":{
-               "description": "Ссылка на иконку \"Недоступно к торговле\"",
-               "type": "string",
-               "maxLength": 255,
-               "format": "uri"
-            },
-            "required": [
-               "icon",
-               "ticker-symbol",
-               "issuer",
-               "price",
-               "price-change-absolute",
-               "price-change-percent",
-               "is-tradable"
-            ]
-         }
-      }
-   }
+        }
+    }
 }
 ```
-| Имя в JSON schema | Обязаельность | Тип | Описание           |
-| ----------------- | ------------- | --- | ------------------ |
-|                   |               |     | Заголовок подробки |
-|                   |               |     | Заголовок подробки |
-|                   |               |     | Заголовок подробки |
-|                   |               |     | Заголовок подробки |
-|                   |               |     | Заголовок подробки |
-|                   |               |     | Заголовок подробки |
-|                   |               |     | Заголовок подробки |
