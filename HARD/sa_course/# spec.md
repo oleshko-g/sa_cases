@@ -234,7 +234,7 @@ sequenceDiagram
                     "type": "number",
                     "exclusiveMinimum": 0,
                     "examples": [
-                        10.001,
+                        -10.001,
                         250,
                         12.02
                     ]
