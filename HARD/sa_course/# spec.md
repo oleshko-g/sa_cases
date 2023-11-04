@@ -113,11 +113,11 @@ sequenceDiagram
 Для написания JSON возьмите дизайн и посмотрите, какие данные есть (не забудьте про логотип, знак валюты, акции для падения, акции для взлета). Проверить на ошибки в синтаксисе можно в онлайн форматерах JSON, например, https://jsoneditoronline.org. Критерии - достоверность/полнота данных + отсутствие ошибок в синтаксисе. Обратите, что надо написать только JSON, без указания названия url и методов (это будет в след.задании).
 2. Описать параметры в виде таблицы.
 ```
-
+### JSON Schema
 ```JSON
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://https://ivestments.tinkoff.ru/draft/2023-10/schema/bidding-leader-digest.json",
+    "$id": "https://ivestments.tinkoff.ru/draft/2023-10/schema/bidding-leader-digest.json",
     "title": "Лидеры торгов бирже",
     "description": "Дайджест топов акций которые больше всего поднялись или опустились в цене за последние сутки",
     "type": "object",
@@ -182,14 +182,14 @@ sequenceDiagram
         "disclaimer": {
             "description": "Обязательная информация \"Не является инвестиционной рекомендацией\"",
             "type": "string"
-        },
-        "required": [
-            "top-cutoff-title",
-            "top-cutoff",
-            "digest-name",
-            "tops"
-        ]
+        }
     },
+    "required": [
+        "top-cutoff-title",
+        "top-cutoff",
+        "digest-name",
+        "tops"
+    ],
     "$defs": {
         "top-list-item": {
             "type": "object",
@@ -268,17 +268,17 @@ sequenceDiagram
                     "type": "string",
                     "maxLength": 255,
                     "format": "uri"
-                },
-                "required": [
-                    "icon",
-                    "ticker-symbol",
-                    "issuer",
-                    "price",
-                    "price-change-absolute",
-                    "price-change-percent",
-                    "is-tradable"
-                ]
-            }
+                }
+            },
+            "required": [
+                "icon",
+                "ticker-symbol",
+                "issuer",
+                "price",
+                "price-change-absolute",
+                "price-change-percent",
+                "is-tradable"
+            ]
         }
     }
 }
