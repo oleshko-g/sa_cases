@@ -283,3 +283,92 @@ sequenceDiagram
     }
 }
 ```
+### Пример JSON
+```JSON
+{
+    "top-cutoff-title": "ТОП",
+    "top-cutoff": 3,
+    "digest-name": "Лидеры торгов на Мосбирже",
+    "tops": [
+        {
+            "top-title": "Взлеты дня",
+            "top-description": "Акции, которые больше всего выросли в цене за послдедние сутки на Мосбирже.",
+            "top-list": [
+                {
+                    "icon": "https://investments.tinkoff.ru/...",
+                    "ticker-symbol": "MVID",
+                    "issuer": "М.Видео",
+                    "price": 191.2,
+                    "price-change-absolute": 10.001,
+                    "price-change-percent": 0.0,
+                    "is-tradable": true,
+                    "price-currency": "₽",
+                    "is-tradable-icon": "https://investments.tinkoff.ru/..."
+                },
+                {
+                    "icon": "https://investments.tinkoff.ru/...",
+                    "ticker-symbol": "LKOH",
+                    "issuer": "ЛУКОЙЛ",
+                    "price": 7253.5,
+                    "price-change-absolute": 250,
+                    "price-change-percent": 0.0,
+                    "is-tradable": true,
+                    "price-currency": "₽",
+                    "is-tradable-icon": "ABCDEFGHIJKL"
+                },
+                {
+                    "icon": "https://investments.tinkoff.ru/...",
+                    "ticker-symbol": "SPBE",
+                    "issuer": "СПБ Бибржа",
+                    "price": 140,
+                    "price-change-absolute": 12.02,
+                    "price-change-percent": 0.0,
+                    "is-tradable": true,
+                    "price-currency": "₽",
+                    "is-tradable-icon": "https://investments.tinkoff.ru/..."
+                }
+            ]
+        },
+        {
+            "top-title": "Падения дня",
+            "top-description": "Акции, которые больше всего упали в цене за послдедние сутки на Мосбирже.",
+            "top-list": [
+                {
+                    "icon": "https://investments.tinkoff.ru/...",
+                    "ticker-symbol": "DVEC",
+                    "issuer": "ДЭК",
+                    "price": 4.99,
+                    "price-change-absolute": -1.01,
+                    "price-change-percent": -0.1683,
+                    "is-tradable": true,
+                    "price-currency": "₽",
+                    "is-tradable-icon": "https://investments.tinkoff.ru/..."
+                },
+                {
+                    "icon": "https://investments.tinkoff.ru/...",
+                    "ticker-symbol": "AKRN",
+                    "issuer": "Акрон",
+                    "price": 18970,
+                    "price-change-absolute": -586.7,
+                    "price-change-percent": -0.03,
+                    "is-tradable": true,
+                    "price-currency": "₽",
+                    "is-tradable-icon": "https://investments.tinkoff.ru/..."
+                },
+                {
+                    "icon": "https://investments.tinkoff.ru/...",
+                    "ticker-symbol": "MRKP",
+                    "issuer": "Россети Центр и Приволжье",
+                    "price": 0.03363,
+                    "price-change-absolute": -0.03363,
+                    "price-change-percent": -1.0,
+                    "is-tradable": true,
+                    "price-currency": "₽",
+                    "is-tradable-icon": "https://investments.tinkoff.ru/..."
+                }
+            ]
+        }
+    ],
+    "disclaimer": "\"Не является инвестиционной рекомендацией\""
+}
+```
