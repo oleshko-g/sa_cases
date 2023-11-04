@@ -116,7 +116,7 @@ sequenceDiagram
 
 ```JSON
 {
-    "$schema": "https://ivestments.tinkoff.ru/draft/2023-10/schema",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://https://ivestments.tinkoff.ru/draft/2023-10/schema/bidding-leader-digest.json",
     "title": "Лидеры торгов бирже",
     "description": "Дайджест топов акций которые больше всего поднялись или опустились в цене за последние сутки",
