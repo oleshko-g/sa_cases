@@ -177,7 +177,8 @@ sequenceDiagram
         "top-cutoff-title",
         "top-cutoff",
         "digest-name",
-        "tops"
+        "tops",
+        "disclaimer"
     ],
     "$defs": {
         "top-list-item": {
@@ -266,7 +267,8 @@ sequenceDiagram
                 "price",
                 "price-change-absolute",
                 "price-change-percent",
-                "is-tradable"
+                "is-tradable",
+                "is-tradable-icon"
             ]
         }
     }
