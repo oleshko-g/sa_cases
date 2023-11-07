@@ -179,7 +179,7 @@ paths:
     get:
       summary: Получить права СФЛ.
       description: Получить права СФЛ по id представителя и id ЮЛ. Максимальный лимит по умолчанию 100.
-      operationId: representer-rights
+      operationId: representerCredentials
       parameters:
         - name: representer-id
           in: header
