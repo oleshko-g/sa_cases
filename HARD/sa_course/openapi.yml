@@ -15,10 +15,10 @@ paths:
       tags: 
         - Подборки акций
       summary: "Добавить новую подборку."
-      description: "Access current weather data for any location on Earth including over 200,000 cities! Current weather is frequently updated based on global models and data from more than 40,000 weather stations."
+      description: "Access current weather data for any location on Earth including over '200',000 cities! Current weather is frequently updated based on global models and data from more than 40,000 weather stations."
       operationId: CurrentWeatherData1
       responses:
-        200:
+        '200':
           description: Successful response
           content:
             application/json:
@@ -30,7 +30,7 @@ paths:
                     type: string
                     description: Placeholder description
       
-        404:
+        '404':
           description: Not found response
           content:
             text/plain:
@@ -39,13 +39,15 @@ paths:
                 type: string
                 example: Not found
   /digests/{id}:
+    parameters:
+      - $ref: '#/components/parameters/id'
     get:
       tags: 
         - Подборки акций
       summary: "Получить подборку акций по 'id'"
       operationId: CurrentWeatherData
       responses:
-        200:
+        '200':
           description: Successful response
           content:
             application/json:
@@ -57,7 +59,7 @@ paths:
                     type: string
                     description: Placeholder description
       
-        404:
+        '404':
           description: Not found response
           content:
             text/plain:
@@ -70,7 +72,7 @@ paths:
         - Подборки акций
       summary: "Изменить подробку по 'id'"
       responses:
-        200:
+        '200':
           description: Successful response
           content:
             application/json:
@@ -82,7 +84,7 @@ paths:
                     type: string
                     description: Placeholder description
       
-        404:
+        '404':
           description: Not found response
           content:
             text/plain:
@@ -95,7 +97,7 @@ paths:
         - Подборки акций
       summary: "Удалить подробку по 'id'"
       responses:
-        200:
+        '200':
           description: Successful response
           content:
             application/json:
@@ -107,7 +109,7 @@ paths:
                     type: string
                     description: Placeholder description
       
-        404:
+        '404':
           description: Not found response
           content:
             text/plain:
@@ -115,3 +117,11 @@ paths:
                 title: Weather not found
                 type: string
                 example: Not found
+components:
+  parameters:
+    id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
