@@ -1,0 +1,117 @@
+openapi: 3.0.2
+info:
+  title: "Tinkoff Investments API"
+  description: "Предоставляет методы для вызова функций приложения \"Тинькофф Инвестиции\""
+  version: "1.0"
+
+servers: 
+  - url: https://investments.tinkoff.ru/api/v1
+    description: Production
+  - url: https://dev.investments.tinkoff.ru/api/v1
+    description: Development
+paths:
+  /digests:
+    post:
+      tags: 
+        - Подборки акций
+      summary: "Добавить новую подборку."
+      description: "Access current weather data for any location on Earth including over 200,000 cities! Current weather is frequently updated based on global models and data from more than 40,000 weather stations."
+      operationId: CurrentWeatherData1
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Sample
+                type: object
+                properties:
+                  placeholder:
+                    type: string
+                    description: Placeholder description
+      
+        404:
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                title: Weather not found
+                type: string
+                example: Not found
+  /digests/{id}:
+    get:
+      tags: 
+        - Подборки акций
+      summary: "Получить подборку акций по 'id'"
+      operationId: CurrentWeatherData
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Sample
+                type: object
+                properties:
+                  placeholder:
+                    type: string
+                    description: Placeholder description
+      
+        404:
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                title: Weather not found
+                type: string
+                example: Not found
+    put:
+      tags: 
+        - Подборки акций
+      summary: "Изменить подробку по 'id'"
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Sample
+                type: object
+                properties:
+                  placeholder:
+                    type: string
+                    description: Placeholder description
+      
+        404:
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                title: Weather not found
+                type: string
+                example: Not found
+    delete:
+      tags: 
+        - Подборки акций
+      summary: "Удалить подробку по 'id'"
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Sample
+                type: object
+                properties:
+                  placeholder:
+                    type: string
+                    description: Placeholder description
+      
+        404:
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                title: Weather not found
+                type: string
+                example: Not found
