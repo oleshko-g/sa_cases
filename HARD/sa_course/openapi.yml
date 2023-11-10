@@ -1,10 +1,10 @@
 openapi: "3.0.2"
 info:
   title: "Tinkoff Investments API"
-  description: "Предоставляет методы для вызова функций приложения \"Тинькофф Инвестиции\""
+  description: 'Предоставляет методы для вызова функций приложения "Тинькофф Инвестиции"'
   version: "1.0"
 
-servers: 
+servers:
   - url: https://investments.tinkoff.ru/api/v1
     description: Production
   - url: https://dev.investments.tinkoff.ru/api/v1
@@ -12,13 +12,21 @@ servers:
 paths:
   /digests:
     post:
-      tags: 
+      tags:
         - Подборки акций
       summary: "Добавить новую подборку."
-      description: "Access current weather data for any location on Earth including over '200',000 cities! Current weather is frequently updated based on global models and data from more than 40,000 weather stations."
-      operationId: CurrentWeatherData1
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              $ref: "#/components/schemas/digest"
+            examples:
+              digest:
+                $ref: "#/components/examples/digest"
+        required: true
+
       responses:
-        '200':
+        "200":
           description: Successful response
           content:
             application/json:
@@ -29,8 +37,8 @@ paths:
                   placeholder:
                     type: string
                     description: Placeholder description
-      
-        '404':
+
+        "404":
           description: Not found response
           content:
             text/plain:
@@ -40,14 +48,14 @@ paths:
                 example: Not found
   /digests/{id}:
     parameters:
-      - $ref: '#/components/parameters/id'
+      - $ref: "#/components/parameters/id"
     get:
-      tags: 
+      tags:
         - Подборки акций
       summary: "Получить подборку акций по 'id'"
       operationId: CurrentWeatherData
       responses:
-        '200':
+        "200":
           description: Successful response
           content:
             application/json:
@@ -58,8 +66,8 @@ paths:
                   placeholder:
                     type: string
                     description: Placeholder description
-      
-        '404':
+
+        "404":
           description: Not found response
           content:
             text/plain:
@@ -68,11 +76,11 @@ paths:
                 type: string
                 example: Not found
     put:
-      tags: 
+      tags:
         - Подборки акций
       summary: "Изменить подробку по 'id'"
       responses:
-        '200':
+        "200":
           description: Successful response
           content:
             application/json:
@@ -83,8 +91,8 @@ paths:
                   placeholder:
                     type: string
                     description: Placeholder description
-      
-        '404':
+
+        "404":
           description: Not found response
           content:
             text/plain:
@@ -93,11 +101,11 @@ paths:
                 type: string
                 example: Not found
     delete:
-      tags: 
+      tags:
         - Подборки акций
       summary: "Удалить подробку по 'id'"
       responses:
-        '200':
+        "200":
           description: Successful response
           content:
             application/json:
@@ -108,8 +116,8 @@ paths:
                   placeholder:
                     type: string
                     description: Placeholder description
-      
-        '404':
+
+        "404":
           description: Not found response
           content:
             text/plain:
@@ -125,3 +133,212 @@ components:
       required: true
       schema:
         type: string
+  schemas:
+    digest:
+      title: Лидеры торгов на бирже
+      description:
+        Дайджест топов акций которые больше всего поднялись или опустились в
+        цене за последние сутки
+      type: object
+      properties:
+        top-cutoff-title:
+          description: Заголовок мест топов
+          type: string
+          example: ТОП
+        top-cutoff:
+          description: Количество мест топов
+          type: integer
+          minimum: 1
+          example:
+            - "15"
+        digest-name:
+          description: Название дайджеста
+          type: string
+          example:
+            - Лидеры торгов на Мосбирже
+        tops:
+          description: Коллекция топов
+          type: array
+          items:
+            type: object
+            properties:
+              top-title:
+                description: Заголовок топа
+                type: string
+                example:
+                  - Взлеты дня
+                  - Падения дня
+              top-description:
+                description: Описание топа
+                type: string
+                maxLength: 1000
+                example:
+                  - Акции, которые больше всего выросли в цене за послдедние сутки на Мосбирже.
+                  - Акции, которые больше всего упали в цене за послдедние сутки на Мосбирже.
+              top-list:
+                description: Список акций
+                type: array
+                items:
+                  $ref: "#/components/schemas/top-list-item"
+          minItems: 1
+          uniqueItems: true
+        disclaimer:
+          description: Обязательная информация "Не является инвестиционной рекомендацией"
+          type: string
+      required:
+        - top-cutoff-title
+        - top-cutoff
+        - digest-name
+        - tops
+        - disclaimer
+    top-list-item:
+      type: object
+      properties:
+        icon:
+          description: Ссылка на иконку акции
+          type: string
+          maxLength: 255
+          format: uri
+        ticker-symbol:
+          description: Тикер акции
+          type: string
+          maxLength: 6
+          example:
+            - MVID
+            - LKOH
+            - SPBE
+        issuer:
+          description: Компания-эмитент акции
+          type: string
+          example:
+            - М.Видео
+            - ЛУКОЙЛ
+            - СПБ Бибржа
+        price:
+          description: Текущая цена акции
+          type: number
+          exclusiveMinimum: true
+          minimum: 0
+          example:
+            - 191.2
+            - 7253.5
+            - 140
+        price-change-absolute:
+          description: "Цена акции"
+          type: number
+          exclusiveMinimum: true
+          minimum: 0
+          example:
+            - -10.001
+            - 250
+            - 12.02
+        price-currency:
+          description: Знак валют акции
+          type: string
+          maxLength: 1
+          pattern: "\\p{Sc}"
+          example:
+            - "$"
+            - "₽"
+            - "€"
+        price-change-percent:
+          description: Процент изменения цены акции. Передается в видел доли единицы.
+          type: number
+          example:
+            - 0.055193461332568
+            - 0.035696437495538
+            - 0.093920925144554
+        is-tradable:
+          description:
+            Признак доступности к торговле. false - когда торги на бирже
+            закрыты или акция заблокирована.
+          type: boolean
+        is-tradable-icon:
+          description:
+            Ссылка на иконку "Недоступно к торговле". Отображается, когда
+            признак is-tradable = false
+          type: string
+          maxLength: 255
+          format: uri
+      required:
+        - icon
+        - ticker-symbol
+        - issuer
+        - price
+        - price-change-absolute
+        - price-change-percent
+        - is-tradable
+        - is-tradable-icon
+  examples:
+    digest:
+      summary: Пример подробки "Лидеры торгов бирже"
+      value:
+        top-cutoff-title: ТОП
+        top-cutoff: 3
+        digest-name: Лидеры торгов на Мосбирже
+        tops:
+          - top-title: Взлеты дня
+            top-description:
+              Акции, которые больше всего выросли в цене за послдедние сутки
+              на Мосбирже.
+            top-list:
+              - icon: https://investments.tinkoff.ru/...
+                ticker-symbol: MVID
+                issuer: М.Видео
+                price: 191.2
+                price-change-absolute: 10.001
+                price-change-percent: 0
+                is-tradable: true
+                price-currency: "₽"
+                is-tradable-icon: https://investments.tinkoff.ru/...
+              - icon: https://investments.tinkoff.ru/...
+                ticker-symbol: LKOH
+                issuer: ЛУКОЙЛ
+                price: 7253.5
+                price-change-absolute: 250
+                price-change-percent: 0
+                is-tradable: true
+                price-currency: "₽"
+                is-tradable-icon: ABCDEFGHIJKL
+              - icon: https://investments.tinkoff.ru/...
+                ticker-symbol: SPBE
+                issuer: СПБ Бибржа
+                price: 140
+                price-change-absolute: 12.02
+                price-change-percent: 0
+                is-tradable: true
+                price-currency: "₽"
+                is-tradable-icon: https://investments.tinkoff.ru/...
+          - top-title: Падения дня
+            top-description:
+              Акции, которые больше всего упали в цене за послдедние сутки на
+              Мосбирже.
+            top-list:
+              - icon: https://investments.tinkoff.ru/...
+                ticker-symbol: DVEC
+                issuer: ДЭК
+                price: 4.99
+                price-change-absolute: -1.01
+                price-change-percent: -0.1683
+                is-tradable: true
+                price-currency: "₽"
+                is-tradable-icon: https://investments.tinkoff.ru/...
+              - icon: https://investments.tinkoff.ru/...
+                ticker-symbol: AKRN
+                issuer: Акрон
+                price: 18970
+                price-change-absolute: -586.7
+                price-change-percent: -0.03
+                is-tradable: true
+                price-currency: "₽"
+                is-tradable-icon: https://investments.tinkoff.ru/...
+              - icon: https://investments.tinkoff.ru/...
+                ticker-symbol: MRKP
+                issuer: Россети Центр и Приволжье
+                price: 0.03363
+                price-change-absolute: -0.03363
+                price-change-percent: -1
+                is-tradable: true
+                price-currency: "₽"
+                is-tradable-icon: https://investments.tinkoff.ru/...
+        disclaimer: '"Не является инвестиционной рекомендацией"'
