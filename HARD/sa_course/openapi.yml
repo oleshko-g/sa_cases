@@ -28,14 +28,7 @@ paths:
       responses:
         "201":
           $ref: "#/components/responses/201"
-        "404":
-          description: Not found response
-          content:
-            text/plain:
-              schema:
-                title: Weather not found
-                type: string
-                example: Not found
+
   /digests/{id}:
     parameters:
       - $ref: "#/components/parameters/id"
@@ -57,13 +50,7 @@ paths:
                     description: Placeholder description
 
         "404":
-          description: Not found response
-          content:
-            text/plain:
-              schema:
-                title: Weather not found
-                type: string
-                example: Not found
+          $ref: "#/components/responses/404"
     put:
       tags:
         - Подборки акций
@@ -82,13 +69,7 @@ paths:
                     description: Placeholder description
 
         "404":
-          description: Not found response
-          content:
-            text/plain:
-              schema:
-                title: Weather not found
-                type: string
-                example: Not found
+          $ref: "#/components/responses/404"
     delete:
       tags:
         - Подборки акций
@@ -107,13 +88,7 @@ paths:
                     description: Placeholder description
 
         "404":
-          description: Not found response
-          content:
-            text/plain:
-              schema:
-                title: Weather not found
-                type: string
-                example: Not found
+          $ref: "#/components/responses/404"
 components:
   parameters:
     id:
@@ -136,6 +111,13 @@ components:
               id:
                 type: string
                 example: "777"
+    "404":
+      description: Объект не найден
+      content:
+        text/plain:
+          schema:
+            type: string
+            example: Подборка не найдена
   schemas:
     digest:
       title: Лидеры торгов на бирже
