@@ -53,7 +53,6 @@ paths:
       tags:
         - Подборки акций
       summary: "Получить подборку акций по 'id'"
-      operationId: CurrentWeatherData
       responses:
         "200":
           description: Successful response
