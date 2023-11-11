@@ -76,17 +76,8 @@ paths:
         - Подборки акций
       summary: "Удалить подробку по 'id'"
       responses:
-        "200":
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                title: Sample
-                type: object
-                properties:
-                  placeholder:
-                    type: string
-                    description: Placeholder description
+        "204":
+          $ref: "#/components/responses/204"
         "404":
           $ref: "#/components/responses/404"
 components:
@@ -111,6 +102,16 @@ components:
               id:
                 type: string
                 example: "777"
+    "204":
+      description: Объект удален
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Подброка успешно удалена
     "400":
       description: Некорректный запрос
       content:
