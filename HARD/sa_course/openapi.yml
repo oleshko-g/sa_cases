@@ -28,7 +28,8 @@ paths:
       responses:
         "201":
           $ref: "#/components/responses/201"
-
+        "400":
+          $ref: "#/components/responses/400"
   /digests/{id}:
     parameters:
       - $ref: "#/components/parameters/id"
@@ -48,7 +49,6 @@ paths:
                   placeholder:
                     type: string
                     description: Placeholder description
-
         "404":
           $ref: "#/components/responses/404"
     put:
@@ -67,7 +67,8 @@ paths:
                   placeholder:
                     type: string
                     description: Placeholder description
-
+        "400":
+          $ref: "#/components/responses/400"
         "404":
           $ref: "#/components/responses/404"
     delete:
@@ -86,7 +87,6 @@ paths:
                   placeholder:
                     type: string
                     description: Placeholder description
-
         "404":
           $ref: "#/components/responses/404"
 components:
@@ -111,6 +111,16 @@ components:
               id:
                 type: string
                 example: "777"
+    "400":
+      description: Некорректный запрос
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Проверьте валидацию тела запроса.
     "404":
       description: Объект не найден
       content:
