@@ -26,18 +26,8 @@ paths:
         required: true
 
       responses:
-        "200":
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                title: Sample
-                type: object
-                properties:
-                  placeholder:
-                    type: string
-                    description: Placeholder description
-
+        "201":
+          $ref: "#/components/responses/201"
         "404":
           description: Not found response
           content:
@@ -132,6 +122,20 @@ components:
       required: true
       schema:
         type: string
+  responses:
+    '201':
+      description: Объект создан
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Подброка создана
+              id:
+                type: string
+                example: "777"
   schemas:
     digest:
       title: Лидеры торгов на бирже
