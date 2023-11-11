@@ -1,7 +1,7 @@
 openapi: "3.0.2"
 info:
   title: "Tinkoff Investments API"
-  description: 'Предоставляет методы для вызова функций приложения "Тинькофф Инвестиции"'
+  description: Предоставляет методы для вызова функций приложения "Тинькофф Инвестиции"
   version: "1.0"
 
 servers:
@@ -98,7 +98,7 @@ components:
       schema:
         type: string
   responses:
-    '201':
+    "201":
       description: Объект создан
       content:
         application/json:
@@ -324,6 +324,6 @@ components:
                 price-change-absolute: -0.03363
                 price-change-percent: -1
                 is-tradable: true
-                price-currency: "₽"
+                price-currency: ₽
                 is-tradable-icon: https://investments.tinkoff.ru/...
-        disclaimer: '"Не является инвестиционной рекомендацией"'
+        disclaimer: Не является инвестиционной рекомендацией
