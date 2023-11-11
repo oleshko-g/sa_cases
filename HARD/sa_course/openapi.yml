@@ -39,16 +39,7 @@ paths:
       summary: "Получить подборку акций по 'id'"
       responses:
         "200":
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                title: Sample
-                type: object
-                properties:
-                  placeholder:
-                    type: string
-                    description: Placeholder description
+          description: Подброка получена
         "404":
           $ref: "#/components/responses/404"
     put:
@@ -57,16 +48,7 @@ paths:
       summary: "Изменить подробку по 'id'"
       responses:
         "200":
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                title: Sample
-                type: object
-                properties:
-                  placeholder:
-                    type: string
-                    description: Placeholder description
+          $ref: "#/components/responses/200"
         "400":
           $ref: "#/components/responses/400"
         "404":
@@ -89,6 +71,16 @@ components:
       schema:
         type: string
   responses:
+    "200":
+      description: Успешный запрос
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message: 
+                type: string
+                example: Подброка успешно обновлена
     "201":
       description: Объект создан
       content:
