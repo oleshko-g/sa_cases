@@ -40,6 +40,13 @@ paths:
       responses:
         "200":
           description: Подброка получена
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/digest"
+              examples:
+                digest:
+                  $ref: "#/components/examples/digest"
         "404":
           $ref: "#/components/responses/404"
     put:
